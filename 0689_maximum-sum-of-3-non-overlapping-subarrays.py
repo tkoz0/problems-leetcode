@@ -15,8 +15,6 @@ class Solution:
                 bestnext = i+k
             best2[i] = sums[i]+sums[bestnext]
             soln2[i] = [i,bestnext]
-        print(best2)
-        print(soln2)
         # dp for 3 non overlapping
         best3 = [None]*(len(best2)-k)
         soln3 = [None]*(len(best2)-k)
@@ -28,8 +26,6 @@ class Solution:
                 bestnext = i+k
             best3[i] = sums[i]+best2[bestnext]
             soln3[i] = [i]+soln2[bestnext]
-        print(best3)
-        print(soln3)
         # find lexicographic min solution
         i = 0
         for j in range(1,len(best3)):
