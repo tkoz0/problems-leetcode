@@ -29,4 +29,15 @@ class Solution:
                     ret += lcache[y]
             return ret
     def subarraysDivByK(self, nums: List[int], k: int) -> int:
-        return self.divandconq(nums,k)
+        #return self.divandconq(nums,k)
+        freq = dict()
+        freq[0] = 1 # the "empty" prefix
+        s = 0
+        ret = 0
+        for n in nums:
+            s += n
+            if s%k not in freq:
+                freq[s%k] = 0
+            ret += freq[s%k]
+            freq[s%k] += 1
+        return ret
